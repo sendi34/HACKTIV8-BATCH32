@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#4f2af5" />
+  <meta name="description" content="TravelBuddy, teman tanya perjalanan jauh." />
+  <title>TravelBuddy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="chat-app is-welcome" id="chat-app">
+    <header class="app-header">
+      <a class="brand" href="/" aria-label="TravelBuddy">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>TravelBuddy</span>
+      </a>
+      <button class="new-chat-button" id="new-chat" type="button" aria-label="Mulai chat baru" title="Mulai chat baru">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        <span>Chat baru</span>
+      </button>
+    </header>
+
+    <section class="chat-panel" aria-label="Chat dengan TravelBuddy">
+      <div class="welcome-screen" id="welcome-screen">
+        <div class="welcome-mascot">
+          <img src="/models/mascot.webp" alt="Maskot TravelBuddy" fetchpriority="high" />
+        </div>
+        <div class="welcome-copy">
+          <h1>Hai, saya TravelBuddy!</h1>
+          <p>Saya bisa membantu menjawab pertanyaan tentang perjalanan anda.</p>
+        </div>
+        <div class="welcome-bubble">Tanya apa saja soal perjalanan apapun!</div>
+        <div class="suggestions welcome-suggestions" id="welcome-suggestions" aria-label="Pertanyaan yang bisa kamu ajukan">
+          <button
+            class="suggestion-toggle"
+            id="welcome-suggestion-toggle"
+            type="button"
+            aria-label="Sembunyikan saran pertanyaan"
+            aria-expanded="true"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 14 6-6 6 6"/>
+            </svg>
+          </button>
+          <div class="welcome-suggestion-list">
+            <button class="suggestion-chip" type="button" data-prompt="Bagaimana cara memilih rute terbaik untuk perjalanan jauh?">
+              <span class="desktop-chip-label">Rute perjalanan</span>
+              <span class="mobile-chip-label">Apa rute terbaik?</span>
+            </button>
+            <button class="suggestion-chip" type="button" data-prompt="Bagaimana memperkirakan lama perjalanan darat?">
+              <span class="desktop-chip-label">Lama perjalanan</span>
+              <span class="mobile-chip-label">Berapa lama perjalanan?</span>
+            </button>
+            <button class="suggestion-chip" type="button" data-prompt="Apa saja yang perlu diperhatikan saat memilih tempat istirahat di perjalanan?">
+              <span class="desktop-chip-label">Tempat istirahat</span>
+              <span class="mobile-chip-label">Ada tempat istirahat?</span>
+            </button>
+            <button class="suggestion-chip" type="button" data-prompt="Apa saja persiapan penting sebelum perjalanan jauh?">
+              <span class="desktop-chip-label">Persiapan perjalanan</span>
+              <span class="mobile-chip-label">Apa yang disiapkan?</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="conversation-screen" id="conversation-screen" hidden>
+        <section class="chat-body" id="chat-body" aria-label="Riwayat percakapan">
+          <div class="messages" id="chat-box" role="log" aria-live="polite" aria-relevant="additions text"></div>
+          <div class="suggestions conversation-suggestions" id="conversation-suggestions" aria-label="Contoh pertanyaan" hidden>
+            <button class="suggestion-chip" type="button" data-prompt="Rencanakan liburan 3 hari ke Bali untuk 2 orang.">
+              Contoh: Rencanakan liburan 3 hari ke Bali untuk 2 orang
+            </button>
+          </div>
+          <button class="scroll-bottom" id="scroll-bottom" type="button" aria-label="Gulir ke pesan terbaru" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+        </section>
+      </div>
+
+      <footer class="chat-footer">
+        <div class="offline-banner" id="offline-banner" role="status" hidden>
+          Ada kendala. Periksa koneksi lalu coba lagi.
+        </div>
+        <form id="chat-form" class="composer">
+          <label class="visually-hidden" for="user-input">Tanyakan sesuatu kepada TravelBuddy</label>
+          <textarea
+            id="user-input"
+            rows="1"
+            maxlength="2000"
+            placeholder="Tanyakan sesuatu..."
+            autocomplete="off"
+            required
+            disabled
+          ></textarea>
+          <button class="send-button" id="send-button" type="submit" aria-label="Kirim pesan" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m5 12 14-7-4 14-3.2-5.8L5 12Z"/><path d="m11.8 13.2 3.4-3.4"/>
+            </svg>
+          </button>
+        </form>
+      </footer>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
